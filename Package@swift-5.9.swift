@@ -190,16 +190,29 @@ extension Package {
                 .package(url: "https://github.com/undefinedlabs/Thrift-Swift", from: "1.1.1")
             )
             products.append(contentsOf: [
+
+                // static libraries
+                .library(name: "DatadogExporter", targets: ["DatadogExporter"]),
                 .library(name: "JaegerExporter", targets: ["JaegerExporter"]),
-                .executable(name: "simpleExporter", targets: ["SimpleExporter"]),
                 .library(name: "NetworkStatus", targets: ["NetworkStatus"]),
+                .library(name: "ResourceExtension", targets: ["ResourceExtension"]),
+                .library(name: "SignPostIntegration", targets: ["SignPostIntegration"]),
                 .library(name: "URLSessionInstrumentation", targets: ["URLSessionInstrumentation"]),
                 .library(name: "ZipkinExporter", targets: ["ZipkinExporter"]),
+
+                // dynamic libraries
+                .library(name: "DatadogExporter-Dynamic", type: .dynamic, targets: ["DatadogExporter"]),
+                .library(name: "JaegerExporter-Dynamic", type: .dynamic, targets: ["JaegerExporter"]),
+                .library(name: "NetworkStatus-Dynamic", type: .dynamic, targets: ["NetworkStatus"]),
+                .library(name: "ResourceExtension-Dynamic", type: .dynamic, targets: ["ResourceExtension"]),
+                .library(name: "SignPostIntegration-Dynamic", type: .dynamic, targets: ["SignPostIntegration"]),
+                .library(name: "URLSessionInstrumentation-Dynamic", type: .dynamic, targets: ["URLSessionInstrumentation"]),
+                .library(name: "ZipkinExporter-Dynamic", type: .dynamic, targets: ["ZipkinExporter"]),
+
+                // executables
                 .executable(name: "OTLPExporter", targets: ["OTLPExporter"]),
                 .executable(name: "OTLPHTTPExporter", targets: ["OTLPHTTPExporter"]),
-                .library(name: "SignPostIntegration", targets: ["SignPostIntegration"]),
-                .library(name: "ResourceExtension", targets: ["ResourceExtension"]),
-                .library(name: "DatadogExporter", targets: ["DatadogExporter"]),
+                .executable(name: "simpleExporter", targets: ["SimpleExporter"]),
             ])
             targets.append(contentsOf: [
                 .target(name: "JaegerExporter",
