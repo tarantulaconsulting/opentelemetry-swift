@@ -168,7 +168,12 @@ extension Package {
                 .package(url: "https://github.com/undefinedlabs/opentracing-objc", from: "0.5.2")
             )
             products.append(
+
+                // static libraries
                 .library(name: "OpenTracingShim-experimental", targets: ["OpenTracingShim"])
+
+                // dynamic libraries
+                .library(name: "OpenTracingShim-experimental-Dynamic", type: .dynamic, targets: ["OpenTracingShim"])
             )
             targets.append(contentsOf: [
                 .target(name: "OpenTracingShim",
