@@ -12,6 +12,8 @@ let package = Package(
         .watchOS(.v3)
     ],
     products: [
+
+         // static libraries
         .library(name: "OpenTelemetryApi", type: .static, targets: ["OpenTelemetryApi"]),
         .library(name: "OpenTelemetrySdk", type: .static, targets: ["OpenTelemetrySdk"]),
         .library(name: "ResourceExtension", type: .static, targets: ["ResourceExtension"]),
@@ -30,6 +32,28 @@ let package = Package(
         .library(name: "DatadogExporter", type: .static, targets: ["DatadogExporter"]),
         .library(name: "NetworkStatus", type: .static, targets: ["NetworkStatus"]),
         .library(name: "OTelSwiftLog", type: .static, targets: ["OTelSwiftLog"]),
+
+         // dynamic libraries
+        .library(name: "OpenTelemetryApi-Dynamic", type: .dynamic, targets: ["OpenTelemetryApi"]),
+        .library(name: "OpenTelemetrySdk-Dynamic", type: .dynamic, targets: ["OpenTelemetrySdk"]),
+        .library(name: "ResourceExtension-Dynamic", type: .dynamic, targets: ["ResourceExtension"]),
+        .library(name: "URLSessionInstrumentation-Dynamic", type: .dynamic, targets: ["URLSessionInstrumentation"]),
+        .library(name: "SignPostIntegration-Dynamic", type: .dynamic, targets: ["SignPostIntegration"]),
+        .library(name: "OpenTracingShim-experimental-Dynamic", type: .dynamic, targets: ["OpenTracingShim"]),
+        .library(name: "SwiftMetricsShim-Dynamic", type: .dynamic, targets: ["SwiftMetricsShim"]),
+        .library(name: "JaegerExporter-Dynamic", type: .dynamic, targets: ["JaegerExporter"]),
+        .library(name: "ZipkinExporter-Dynamic", type: .dynamic, targets: ["ZipkinExporter"]),
+        .library(name: "StdoutExporter-Dynamic", type: .dynamic, targets: ["StdoutExporter"]),
+        .library(name: "PrometheusExporter-Dynamic", type: .dynamic, targets: ["PrometheusExporter"]),
+        .library(name: "OpenTelemetryProtocolExporter-Dynamic", type: .dynamic, targets: ["OpenTelemetryProtocolExporterGrpc"]),
+        .library(name: "OpenTelemetryProtocolExporterHTTP-Dynamic", type: .dynamic, targets: ["OpenTelemetryProtocolExporterHttp"]),
+        .library(name: "PersistenceExporter-Dynamic", type: .dynamic, targets: ["PersistenceExporter"]),
+        .library(name: "InMemoryExporter-Dynamic", type: .dynamic, targets: ["InMemoryExporter"]),
+        .library(name: "DatadogExporter-Dynamic", type: .dynamic, targets: ["DatadogExporter"]),
+        .library(name: "NetworkStatus-Dynamic", type: .dynamic, targets: ["NetworkStatus"]),
+        .library(name: "OTelSwiftLog-Dynamic", type: .dynamic, targets: ["OTelSwiftLog"]),
+
+         // executables
         .executable(name: "simpleExporter", targets: ["SimpleExporter"]),
         .executable(name: "OTLPExporter", targets: ["OTLPExporter"]),
         .executable(name: "OTLPHTTPExporter", targets: ["OTLPHTTPExporter"]),
