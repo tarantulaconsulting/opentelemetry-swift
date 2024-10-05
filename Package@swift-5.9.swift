@@ -170,10 +170,10 @@ extension Package {
             products.append(
 
                 // static libraries
-                .library(name: "OpenTracingShim-experimental", targets: ["OpenTracingShim"])
+                .library(name: "OpenTracingShim-experimental", targets: ["OpenTracingShim"]),
 
                 // dynamic libraries
-                .library(name: "OpenTracingShim-experimental-Dynamic", type: .dynamic, targets: ["OpenTracingShim"])
+                .library(name: "OpenTracingShim-experimental-Dynamic", type: .dynamic, targets: ["OpenTracingShim"]),
             )
             targets.append(contentsOf: [
                 .target(name: "OpenTracingShim",
